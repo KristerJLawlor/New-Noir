@@ -167,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6257291131750470895
 Transform:
   m_ObjectHideFlags: 0
@@ -4924,7 +4924,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5197,7 +5196,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.98039216, g: 0.972549, b: 0.83137256, a: 1}
   m_Intensity: 2.19
-  m_Range: 1.3
+  m_Range: 3
   m_SpotAngle: 58
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -5230,7 +5229,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295

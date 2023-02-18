@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     public Rigidbody myRig;
     public Animator playerAnimator;
+    public AudioSource audioSrc;
     public int playerHP;
     public int playerMaxHP;
     public int power;
@@ -39,10 +40,10 @@ public class Player : MonoBehaviour
     {
         
     }
-
+    
     public IEnumerator WaitForShoot()
     {
-        //yield return new WaitForSecondsRealtime(.5f);
+        yield return new WaitForSecondsRealtime(.5f);
         //animation between shots
         //playerAnimator.SetInteger("State", 0);
         //canShoot = true;
@@ -59,7 +60,7 @@ public class Player : MonoBehaviour
                 //source.clip = exampleSound
                 //source.Play();
         }
-        else if ()
+        else if (shoot.phase == InputActionPhase.Canceled)
         {
             StartCoroutine(WaitForShoot());
         }

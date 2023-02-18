@@ -113,13 +113,13 @@ namespace Wilberforce
             // Shader pass
 			// bind the 'Type' attribute to 'type' variable in shader program
 			ColorblindMaterial.SetInt ("type", Type);
-			// run the shader
-			Graphics.Blit (
-				source, // input texture
-				destination, // output texture
-				ColorblindMaterial, // which shader to use
-				0 // which shader pass 
-			);
+            // run the shader
+            Graphics.Blit(
+                source, // input texture
+                destination, // output texture
+                ColorblindMaterial, // which shader to use
+                0 // which shader pass 
+            ) ;
         }
     }
 
@@ -150,7 +150,8 @@ namespace Wilberforce
 			var colorblindScript = target as Colorblind;
 
             // bind the 'Type' parameter of the Colorblind script to dropdown in GUI
-            colorblindScript.Type = EditorGUILayout.IntPopup(typeLabelContent, colorblindScript.Type, typeTexts, typeInts);
+            //colorblindScript.Type = EditorGUILayout.IntPopup(typeLabelContent, colorblindScript.Type, typeTexts, typeInts);
+            colorblindScript.Type = 0;
 
 			// if user made some changes (selected new value from the dropdown) we have to forward the notification
 			if (GUI.changed)

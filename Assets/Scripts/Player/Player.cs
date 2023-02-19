@@ -123,10 +123,10 @@ public class Player : MonoBehaviour
             LastInput = Vector3.zero;
 
         }
-        else
+        /*else
         {
             LastInput = Vector3.zero;
-        }
+        }*/
     }
     public void Shoot(InputAction.CallbackContext s)
     {

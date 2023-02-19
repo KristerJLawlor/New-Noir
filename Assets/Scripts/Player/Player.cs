@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public int playerHP = 100;
     public int playerMaxHP;
     public int power = 50;
-    public int lives = 10;
+    public int lives;
     public float speed = 2f;
     public float maxSpeed = 2f;
     public float acceleration = 1.01f;
@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         //playerAnimator = GetComponent<Animator>();
         myRig = GetComponent<Rigidbody>();
         if (myRig == null)
@@ -54,7 +55,7 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        Vector3 newVel = (LastInput) * speed;
+        Vector3 newVel = LastInput * speed;
         LastVel = Vector3.zero;
         Vector3 velDif = newVel - LastVel;
         LastVel += ((velDif.normalized * acceleration)) * Time.deltaTime;
@@ -99,10 +100,12 @@ public class Player : MonoBehaviour
             Vector2 temp = c.ReadValue<Vector2>();
             LastInput = new Vector3(temp.x, 0, temp.y);
             myRig.velocity = new Vector3(temp.x, 0, temp.y) * speed + new Vector3(0, myRig.velocity.y, 0);
+            Debug.Log("Moving" + LastInput);
         }
         if (c.phase == InputActionPhase.Canceled)
         {
             LastInput = Vector3.zero;
+            Debug.Log("Canceled" + LastInput);
 
         }
     }

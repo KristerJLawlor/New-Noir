@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newVel = LastInput * speed;
+        /*Vector3 newVel = LastInput * speed;
         Vector3 oldVel = new Vector3(myRig.velocity.x, 0, myRig.velocity.z);
         Vector3 velDif = newVel - oldVel;
 
@@ -68,6 +68,8 @@ public class Player : MonoBehaviour
                     + new Vector3(0, myRig.velocity.y, 0);
             }
         }
+        */
+        myRig.velocity = LastInput * speed + new Vector3(0, myRig.velocity.y, 0);
 
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -94,14 +96,20 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Movement(InputAction.CallbackContext move)
+    public void Movement(InputAction.CallbackContext c)
     {
-        if (move.phase == InputActionPhase.Started || move.phase == InputActionPhase.Performed)
+        if (c.phase == InputActionPhase.Started || c.phase == InputActionPhase.Performed)
         {
-            Vector2 temp = move.ReadValue<Vector2>();
+            Vector2 temp = c.ReadValue<Vector2>();
             LastInput = new Vector3(temp.x, 0, temp.y);
+            myRig.velocity = new Vector3(temp.x, 0, temp.y) * speed + new Vector3(0, myRig.velocity.y, 0);
         }
-        if (move.phase == InputActionPhase.Canceled)
+        if (c.phase == InputActionPhase.Canceled)
+        {
+            LastInput = Vector3.zero;
+
+        }
+        else
         {
             LastInput = Vector3.zero;
         }

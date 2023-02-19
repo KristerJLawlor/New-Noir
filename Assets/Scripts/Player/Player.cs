@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
     public Vector3 LastVel;
     public Vector3 LastInput;
     public Camera cam;
+    public bool lastFire;
+    public bool canShoot;
+    public GameObject bulletPrefab;
 
 
     // Start is called before the first frame update
@@ -33,6 +36,11 @@ public class Player : MonoBehaviour
         audioSrc = GetComponent<AudioSource>();
         cam = GameObject.FindGameObjectWithTag("GameCam").GetComponent<Camera>();
     }
+    public IEnumerator ROF()
+    {
+        yield return new WaitForSeconds(.3f);
+        canShoot = true;
+    }
 
     // Update is called once per frame
     void Update()
@@ -43,6 +51,14 @@ public class Player : MonoBehaviour
         {
             transform.LookAt(hit.point); // Look at the point
             transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 0));
+        }
+        if (lastFire && canShoot)
+        {
+            GameObject temp = GameObject.Instantiate(bulletPrefab, myRig.position + this.transform.forward * .9f, this.transform.rotation);
+            temp.GetComponent<Rigidbody>().velocity = this.transform.forward * 8;
+            canShoot = false;
+            //enemycounter.KillEnemy();
+            StartCoroutine(ROF());
         }
     }
 
@@ -56,6 +72,21 @@ public class Player : MonoBehaviour
         if (move.phase == InputActionPhase.Canceled)
         {
             LastInput = Vector3.zero;
+        }
+    }
+    public void Shoot(InputAction.CallbackContext s)
+    {
+        if (s.phase == InputActionPhase.Started)
+        {
+            lastFire = true;
+        }
+        else if (s.phase == InputActionPhase.Canceled)
+        {
+            lastFire = false;
+        }
+        else 
+        { 
+        lastFire= false;
         }
     }
 

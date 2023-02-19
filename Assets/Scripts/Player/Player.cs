@@ -59,28 +59,6 @@ public class Player : MonoBehaviour
         Vector3 velDif = newVel - LastVel;
         LastVel += ((velDif.normalized * acceleration)) * Time.deltaTime;
         LastVel = newVel;
-        
-
-        /*Vector3 newVel = LastInput * speed;
-        Vector3 oldVel = new Vector3(myRig.velocity.x, 0, myRig.velocity.z);
-        Vector3 velDif = newVel - oldVel;
-
-        if (newVel.magnitude < .1f && oldVel.magnitude < .1f)
-        {
-            myRig.velocity = Vector3.zero + new Vector3(0, myRig.velocity.y, 0);
-        }
-        else
-        {
-            myRig.velocity += velDif.normalized * acceleration * Time.deltaTime; 
-
-            if (new Vector3(myRig.velocity.x, 0, myRig.velocity.z).magnitude > maxSpeed)
-            {
-                myRig.velocity = new Vector3(myRig.velocity.x, 0, myRig.velocity.z).normalized * maxSpeed
-                    + new Vector3(0, myRig.velocity.y, 0);
-            }
-        }
-        */
-        //myRig.velocity = LastInput * speed + new Vector3(0, myRig.velocity.y, 0);
 
 
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -108,6 +86,10 @@ public class Player : MonoBehaviour
         }
         counter.UpdateBullet(ammoCount);
         UISCRIPT.changeLives(lives);
+        if(lives<=0)
+        {
+            SceneManager.LoadScene(3);
+        }
     }
 
     public void Movement(InputAction.CallbackContext c)
@@ -122,10 +104,6 @@ public class Player : MonoBehaviour
         {
             LastInput = Vector3.zero;
 
-        }
-        else
-        {
-            LastInput = Vector3.zero;
         }
     }
     public void Shoot(InputAction.CallbackContext s)
@@ -165,7 +143,6 @@ public class Player : MonoBehaviour
     {
         if(this.playerHP <= 0)
         {
-            Destroy(this.gameObject);
             lives--;
             if(lives <= 0)
             {
@@ -179,6 +156,10 @@ public class Player : MonoBehaviour
         if(c.gameObject.tag == "Goal")
         {
             SceneManager.LoadScene(4);
+        }
+        if (c.gameObject.tag == "Enemy")
+        {
+            lives--;
         }
     }
 }

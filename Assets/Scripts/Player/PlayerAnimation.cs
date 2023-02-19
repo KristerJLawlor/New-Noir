@@ -42,6 +42,7 @@ public class PlayerAnimation : MonoBehaviour
 
             myAnimate.SetInteger("DIR", 0);
         }
+
     }
 
     public void Attacker(InputAction.CallbackContext j)

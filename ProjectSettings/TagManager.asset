@@ -11,6 +11,9 @@ TagManager:
   - Protanopia
   - Deuteranopia
   - Tritanopia
+  - Goal
+  - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public bool collideUnder = false;
     public Vector3 Velocity;
     public Vector3 LastVel;
+    public Camera cam;
 
 
     // Start is called before the first frame update
@@ -28,13 +29,19 @@ public class Player : MonoBehaviour
             throw new System.Exception("Player has no rigidbody");
         }
         audioSrc = GetComponent<AudioSource>();
-
+        cam = GameObject.FindGameObjectWithTag("GameCam").GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            transform.LookAt(hit.point); // Look at the point
+            transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 0));
+        }
     }
 
     public void Death()

@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
             }
         }
         */
-        myRig.velocity = LastInput * speed + new Vector3(0, myRig.velocity.y, 0);
+        //myRig.velocity = LastInput * speed + new Vector3(0, myRig.velocity.y, 0);
 
 
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);

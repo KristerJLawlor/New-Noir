@@ -35585,14 +35585,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3315666142157580447}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4a4485eee7ac1149bbf24fbda0d5882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myRig: {fileID: 4767328512273865407}
-  playerAnimator: {fileID: 0}
-  audioSrc: {fileID: 0}
   playerHP: 100
   playerMaxHP: 0
   power: 50
@@ -38998,6 +38996,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4767328513795143920, guid: 933fb10942fdf6a47ba707b0b80cfa0e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4767328513795143928, guid: 933fb10942fdf6a47ba707b0b80cfa0e, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 14

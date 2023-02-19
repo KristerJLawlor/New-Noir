@@ -94,8 +94,8 @@ public class Player : MonoBehaviour
         {
             if (lastFire && canShoot)
             {
-                GameObject temp = GameObject.Instantiate(bulletPrefab, myRig.position + this.transform.forward * .9f, this.transform.rotation);
-                temp.GetComponent<Rigidbody>().velocity = this.transform.forward * 3;
+                GameObject temp = GameObject.Instantiate(bulletPrefab, myRig.position + this.transform.forward * .9f + this.transform.up, this.transform.rotation);
+                temp.GetComponent<Rigidbody>().velocity = this.transform.forward *8;
                 canShoot = false;
                 //enemycounter.KillEnemy();
                 StartCoroutine(ROF());

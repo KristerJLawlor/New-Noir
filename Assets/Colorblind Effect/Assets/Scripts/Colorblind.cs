@@ -14,8 +14,8 @@ namespace Wilberforce
     public class Colorblind : MonoBehaviour
     {
         // public Parameters  
-		public int Type = 0;
-
+        public int Type;
+        
         // private Parameters
 		public Shader colorblindShader;
         private bool isSupported;
@@ -122,7 +122,8 @@ namespace Wilberforce
             ) ;
         }
     }
-
+    
+    /*
 	// ensure unity editor is present - so it doesn't crash when running built project
 	#if UNITY_EDITOR 
 
@@ -162,4 +163,5 @@ namespace Wilberforce
 		}
 	}
 	#endif
+    */
 }

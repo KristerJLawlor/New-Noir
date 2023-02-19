@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab;
     public int ammoCount = 6;
     public AmmoCan counter;
+    public UIScripting UISCRIPT;
 
 
     // Start is called before the first frame update
@@ -52,14 +53,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
+
         Vector3 newVel = (LastInput) * speed;
         LastVel = Vector3.zero;
         Vector3 velDif = newVel - LastVel;
         LastVel += ((velDif.normalized * acceleration)) * Time.deltaTime;
         LastVel = newVel;
         
-=======
+
         /*Vector3 newVel = LastInput * speed;
         Vector3 oldVel = new Vector3(myRig.velocity.x, 0, myRig.velocity.z);
         Vector3 velDif = newVel - oldVel;
@@ -81,7 +82,7 @@ public class Player : MonoBehaviour
         */
         myRig.velocity = LastInput * speed + new Vector3(0, myRig.velocity.y, 0);
 
->>>>>>> b77104569f61bbbb83df32784da359b3fae08005
+
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
@@ -106,6 +107,7 @@ public class Player : MonoBehaviour
             StartCoroutine(Reloading());
         }
         counter.UpdateBullet(ammoCount);
+        UISCRIPT.changeLives(lives);
     }
 
     public void Movement(InputAction.CallbackContext c)

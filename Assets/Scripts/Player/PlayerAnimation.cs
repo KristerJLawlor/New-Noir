@@ -7,7 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerAnimation : MonoBehaviour
 {
     public Animator myAnimate;
-    public AudioSource gunshot;
+    public AudioSource gunsource;
+    public AudioClip gunclip;
 
     public float AttackTimer = 1.5f;
 
@@ -49,7 +50,7 @@ public class PlayerAnimation : MonoBehaviour
         {
             LastAttack = true;
             myAnimate.SetInteger("DIR", 2);
-            gunshot.Play();
+            
             Debug.Log("Made it to Attack");
         }
         else if (j.phase == InputActionPhase.Canceled) //if key is released
@@ -63,6 +64,8 @@ public class PlayerAnimation : MonoBehaviour
 
     public IEnumerator Timeout()
     {   
+        gunsource.PlayOneShot(gunclip);
+        
         yield return new WaitForSeconds(AttackTimer);
         myAnimate.SetInteger("DIR", 0);
     }

@@ -21,5 +21,9 @@ public class Die : MonoBehaviour
         {
             GameObject.Destroy(this.gameObject);
         }
+        if (collision.gameObject.tag == "Player") 
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().lives--;
+        }
     }
 }

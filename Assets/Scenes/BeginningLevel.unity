@@ -39000,6 +39000,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4767328513795143923, guid: 933fb10942fdf6a47ba707b0b80cfa0e, type: 3}
+      propertyPath: m_Volume
+      value: 0.69
+      objectReference: {fileID: 0}
     - target: {fileID: 4767328513795143928, guid: 933fb10942fdf6a47ba707b0b80cfa0e, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 14

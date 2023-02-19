@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Patrol
   - Guard
+  - GameCam
+  - Normal
+  - Protanopia
+  - Deuteranopia
+  - Tritanopia
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
@@ -22,9 +23,10 @@ public class Player : MonoBehaviour
     public Vector3 LastVel;
     public Vector3 LastInput;
     public Camera cam;
-    public bool lastFire;
-    public bool canShoot;
+    public bool lastFire=false;
+    public bool canShoot=true;
     public GameObject bulletPrefab;
+    public int ammoCount = 6;
 
 
     // Start is called before the first frame update
@@ -41,7 +43,7 @@ public class Player : MonoBehaviour
     }
     public IEnumerator ROF()
     {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.1f);
         canShoot = true;
     }
 
@@ -74,13 +76,21 @@ public class Player : MonoBehaviour
             transform.LookAt(hit.point); // Look at the point
             transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 0));
         }
-        if (lastFire && canShoot)
+        if (ammoCount > 0)
         {
-            GameObject temp = GameObject.Instantiate(bulletPrefab, myRig.position + this.transform.forward * .9f, this.transform.rotation);
-            temp.GetComponent<Rigidbody>().velocity = this.transform.forward * 8;
-            canShoot = false;
-            //enemycounter.KillEnemy();
-            StartCoroutine(ROF());
+            if (lastFire && canShoot)
+            {
+                GameObject temp = GameObject.Instantiate(bulletPrefab, myRig.position + this.transform.forward * .9f, this.transform.rotation);
+                temp.GetComponent<Rigidbody>().velocity = this.transform.forward * 3;
+                canShoot = false;
+                //enemycounter.KillEnemy();
+                StartCoroutine(ROF());
+            }
+        }
+        else
+        {
+            canShoot=false;
+            StartCoroutine(Reloading());
         }
     }
 
@@ -98,18 +108,34 @@ public class Player : MonoBehaviour
     }
     public void Shoot(InputAction.CallbackContext s)
     {
-        if (s.phase == InputActionPhase.Started)
+        if (ammoCount > 0)
         {
-            lastFire = true;
+            if (s.phase == InputActionPhase.Started && canShoot)
+            {
+                lastFire = true;
+                ammoCount--;
+            }
+            else if (s.phase == InputActionPhase.Canceled)
+            {
+                lastFire = false;
+            }
         }
-        else if (s.phase == InputActionPhase.Canceled)
+        else
         {
             lastFire = false;
         }
-        else 
-        { 
-        lastFire= false;
-        }
+    }
+    public void Reload(InputAction.CallbackContext r)
+    { 
+        canShoot= false;
+        StartCoroutine(Reloading());
+    }
+    public IEnumerator Reloading()
+    {
+        yield return new WaitForSeconds(1);
+        ammoCount = 6;
+        canShoot= true;
+
     }
 
     public void Death()

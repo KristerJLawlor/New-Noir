@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public Rigidbody myRig;
-    //public Animator playerAnimator;
-    //public AudioSource audioSrc;
+    public Animator playerAnimator;
+    public AudioSource audioSrc;
     public int playerHP = 100;
     public int playerMaxHP;
     public int power = 50;
@@ -34,14 +34,14 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //playerAnimator = GetComponent<Animator>();
+        playerAnimator = GetComponent<Animator>();
         myRig = GetComponent<Rigidbody>();
         if (myRig == null)
         {
             throw new System.Exception("Player has no rigidbody");
         }
         
-        //audioSrc = GetComponent<AudioSource>();
+        audioSrc = GetComponent<AudioSource>();
         cam = GameObject.FindGameObjectWithTag("GameCam").GetComponent<Camera>();
     }
     public IEnumerator ROF()

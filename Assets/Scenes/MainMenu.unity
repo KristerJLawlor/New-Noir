@@ -1636,7 +1636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2719,7 +2719,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\t\t   \t\t\tInstructions\nMovement: WASD / Joystick\n\n\nInteraction:
+  m_Text: "\t\t   \t\t\t   Instructions\nMovement: WASD / Joystick\n\n\nInteraction:
     E / X\n\n\nShooting: Mouse left click / right bumper"
 --- !u!1001 &1553957854
 PrefabInstance:
@@ -3292,7 +3292,7 @@ MonoBehaviour:
     Krister Lawlor: Sound design
 
     Alexander
-    WhitWorth: Level Design
+    WhitWorth: Mechanics
 
     Mykell Spencer: Mechanics
 
@@ -3684,7 +3684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

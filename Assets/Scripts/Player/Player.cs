@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public bool canShoot=true;
     public GameObject bulletPrefab;
     public int ammoCount = 6;
+    public AmmoCan counter;
 
 
     // Start is called before the first frame update
@@ -94,6 +95,7 @@ public class Player : MonoBehaviour
             canShoot=false;
             StartCoroutine(Reloading());
         }
+        counter.UpdateBullet(ammoCount);
     }
 
     public void Movement(InputAction.CallbackContext c)
@@ -122,6 +124,7 @@ public class Player : MonoBehaviour
             {
                 lastFire = true;
                 ammoCount--;
+
             }
             else if (s.phase == InputActionPhase.Canceled)
             {

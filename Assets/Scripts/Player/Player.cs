@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab;
     public int ammoCount = 6;
     public AmmoCan counter;
+    public UIScripting UISCRIPT;
 
 
     // Start is called before the first frame update
@@ -106,6 +107,7 @@ public class Player : MonoBehaviour
             StartCoroutine(Reloading());
         }
         counter.UpdateBullet(ammoCount);
+        UISCRIPT.changeLives(lives);
     }
 
     public void Movement(InputAction.CallbackContext c)
@@ -174,6 +176,9 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter(Collision c)
     {
-
+        if(c.gameObject.tag == "Goal")
+        {
+            SceneManager.LoadScene(4);
+        }
     }
 }

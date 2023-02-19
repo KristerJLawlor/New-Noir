@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         GameObject.Destroy(this.gameObject);
     }
 
-    public void OnCollisionEnter(collision c)
+    public void OnCollisionEnter(Collision c)
     {
 
     }

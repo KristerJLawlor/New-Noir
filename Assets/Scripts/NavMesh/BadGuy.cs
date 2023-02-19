@@ -19,6 +19,9 @@ public class BadGuy : MonoBehaviour
     public bool isTrackingPlayer = false;
     public NavMeshAgent myNav = null;
 
+    public Animator myAnimate;
+    public AudioSource gunshot;
+
 
 
     // Start is called before the first frame update
@@ -31,7 +34,10 @@ public class BadGuy : MonoBehaviour
         myNav.destination = goalLoc2;
 
         //Setting isStopped to false replaces .Resume()
-        myNav.isStopped = false;
+        //myNav.isStopped = false;
+
+        myAnimate = this.GetComponent<Animator>();
+        myAnimate.SetInteger("DIR", 0);
 
     }
 
@@ -53,18 +59,21 @@ public class BadGuy : MonoBehaviour
 
                     myNav.destination = goalLoc1;
                     myNav.isStopped = false;
+                    myAnimate.SetInteger("DIR", 1);
                 }
                 if ((myNav.transform.position.x - goalLoc1.x) == 0)
                 {
 
                     myNav.destination = goalLoc2;
                     myNav.isStopped = false;
+                    myAnimate.SetInteger("DIR", 1);
                 }
                 if ((myNav.transform.position.x - LastPlayerLocation.x) == 0)
                 {
 
                     myNav.destination = goalLoc2;
                     myNav.isStopped = false;
+                    myAnimate.SetInteger("DIR", 1);
                 }
             }
 
@@ -82,11 +91,13 @@ public class BadGuy : MonoBehaviour
             {
                 //Set the new destination to the current players location
                 myNav.destination = PlayerLocation;
+                myAnimate.SetInteger("DIR", 1);
             }
             if (isTrackingPlayer == false)
             {
                 //Stop unit in place
                 myNav.isStopped = true;
+                myAnimate.SetInteger("DIR", 0);
             }
         }
 

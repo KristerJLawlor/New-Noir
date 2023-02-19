@@ -12,12 +12,7 @@ public class PlayerAnimation : MonoBehaviour
     public float AttackTimer = 1.5f;
 
     public bool LastAttack = false;
-<<<<<<< Updated upstream
-    public Vector3 LastInput;
-=======
 
-
->>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
@@ -25,13 +20,8 @@ public class PlayerAnimation : MonoBehaviour
         //Use myAnimate to set the DIR variable to change animation of player
         myAnimate = this.GetComponent<Animator>();
 
-<<<<<<< Updated upstream
-        //Get rigidbody
-        myRig = GetComponent<Rigidbody>();
-=======
 
 
->>>>>>> Stashed changes
     }
 
     // Update is called once per frame

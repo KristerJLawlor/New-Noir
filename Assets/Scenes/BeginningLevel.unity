@@ -450,6 +450,8 @@ MonoBehaviour:
   LastPlayerLocation: {x: 0, y: 0, z: 0}
   isTrackingPlayer: 0
   myNav: {fileID: 0}
+  myAnimate: {fileID: 0}
+  gunshot: {fileID: 0}
 --- !u!1001 &20379234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8921,6 +8923,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: impacter
       objectReference: {fileID: 0}
+    - target: {fileID: 4614505576717240760, guid: 83b55234ab2a1b049bc2fa62d5c4d7e9, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7253883553490210495, guid: 83b55234ab2a1b049bc2fa62d5c4d7e9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -10360,6 +10366,8 @@ MonoBehaviour:
   LastPlayerLocation: {x: 0, y: 0, z: 0}
   isTrackingPlayer: 0
   myNav: {fileID: 0}
+  myAnimate: {fileID: 0}
+  gunshot: {fileID: 0}
 --- !u!1001 &797608364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10878,6 +10886,8 @@ MonoBehaviour:
   LastPlayerLocation: {x: 0, y: 0, z: 0}
   isTrackingPlayer: 0
   myNav: {fileID: 0}
+  myAnimate: {fileID: 0}
+  gunshot: {fileID: 0}
 --- !u!1 &832801899
 GameObject:
   m_ObjectHideFlags: 0
@@ -14986,6 +14996,8 @@ MonoBehaviour:
   LastPlayerLocation: {x: 0, y: 0, z: 0}
   isTrackingPlayer: 0
   myNav: {fileID: 0}
+  myAnimate: {fileID: 0}
+  gunshot: {fileID: 0}
 --- !u!1001 &1139827420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19589,6 +19601,8 @@ MonoBehaviour:
   LastPlayerLocation: {x: 0, y: 0, z: 0}
   isTrackingPlayer: 0
   myNav: {fileID: 0}
+  myAnimate: {fileID: 0}
+  gunshot: {fileID: 0}
 --- !u!1001 &1373780947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25012,6 +25026,8 @@ MonoBehaviour:
   LastPlayerLocation: {x: 0, y: 0, z: 0}
   isTrackingPlayer: 0
   myNav: {fileID: 0}
+  myAnimate: {fileID: 0}
+  gunshot: {fileID: 0}
 --- !u!1 &1779297295
 GameObject:
   m_ObjectHideFlags: 0
@@ -25996,6 +26012,8 @@ MonoBehaviour:
   LastPlayerLocation: {x: 0, y: 0, z: 0}
   isTrackingPlayer: 0
   myNav: {fileID: 0}
+  myAnimate: {fileID: 0}
+  gunshot: {fileID: 0}
 --- !u!1 &1838865823
 GameObject:
   m_ObjectHideFlags: 0
@@ -29005,6 +29023,8 @@ MonoBehaviour:
   LastPlayerLocation: {x: 0, y: 0, z: 0}
   isTrackingPlayer: 0
   myNav: {fileID: 0}
+  myAnimate: {fileID: 0}
+  gunshot: {fileID: 0}
 --- !u!1 &2057608344
 GameObject:
   m_ObjectHideFlags: 0
@@ -42747,9 +42767,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5537518568466146309, guid: 1163a183b972a9e4798f71550dbd2163, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537518568466146309, guid: 1163a183b972a9e4798f71550dbd2163, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ab6ae64433295094c937fc0f8aec9dd4, type: 2}
+    - target: {fileID: 5537518568466146309, guid: 1163a183b972a9e4798f71550dbd2163, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5537518568466146360, guid: 1163a183b972a9e4798f71550dbd2163, type: 3}
       propertyPath: m_Name
       value: Player

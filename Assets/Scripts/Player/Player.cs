@@ -12,10 +12,12 @@ public class Player : MonoBehaviour
     public int playerHP = 100;
     public int playerMaxHP;
     public int power = 50;
+    public int lives = 3;
     public bool collideSide = false;
     public bool collideUnder = false;
     public Vector3 Velocity;
     public Vector3 LastVel;
+    public Vector3 LastInput;
     public Camera cam;
 
 
@@ -44,9 +46,31 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Movement(InputAction.CallbackContext move)
+    {
+        if (move.phase == InputActionPhase.Started || move.phase == InputActionPhase.Performed)
+        {
+            Vector2 temp = move.ReadValue<Vector2>();
+            LastInput = new Vector3(temp.x, 0, temp.y);
+        }
+        if (move.phase == InputActionPhase.Canceled)
+        {
+            LastInput = Vector3.zero;
+        }
+    }
+
     public void Death()
     {
-        GameObject.Destroy(this.gameObject);
+        if(this.playerHP <= 0)
+        {
+            Destroy(this.gameObject);
+            lives--;
+            if(lives <= 0)
+            {
+
+            }
+            SceneManager.LoadScene(3);
+        }
     }
 
     public void OnCollisionEnter(Collision c)

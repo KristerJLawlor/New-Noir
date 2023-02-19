@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -532,6 +532,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 119087898}
+  B1: {fileID: 208828180}
+  B2: {fileID: 1285183013}
+  B3: {fileID: 119087898}
+  B4: {fileID: 1646622699}
   cam: {fileID: 3604613839722925015, guid: 0b1730b9b79c3e74fae90abb42a1d794, type: 3}
 --- !u!1 &208828178
 GameObject:
@@ -681,6 +685,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 208828180}
+  B1: {fileID: 208828180}
+  B2: {fileID: 1285183013}
+  B3: {fileID: 119087898}
+  B4: {fileID: 1646622699}
   cam: {fileID: 3604613839722925015, guid: 0b1730b9b79c3e74fae90abb42a1d794, type: 3}
 --- !u!1 &314723784
 GameObject:
@@ -716,7 +724,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1223,6 +1231,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2310,6 +2319,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1285183013}
+  B1: {fileID: 208828180}
+  B2: {fileID: 1285183013}
+  B3: {fileID: 119087898}
+  B4: {fileID: 1646622699}
   cam: {fileID: 3604613839722925015, guid: 0b1730b9b79c3e74fae90abb42a1d794, type: 3}
 --- !u!1 &1309120846
 GameObject:
@@ -2713,6 +2726,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3604613839722925013, guid: 0b1730b9b79c3e74fae90abb42a1d794, type: 3}
@@ -2764,6 +2778,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b1730b9b79c3e74fae90abb42a1d794, type: 3}
 --- !u!1 &1563999754
 GameObject:
@@ -2799,7 +2814,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3149,6 +3164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1646622699}
+  B1: {fileID: 208828180}
+  B2: {fileID: 1285183013}
+  B3: {fileID: 119087898}
+  B4: {fileID: 1646622699}
   cam: {fileID: 3604613839722925015, guid: 0b1730b9b79c3e74fae90abb42a1d794, type: 3}
 --- !u!1 &1746863929
 GameObject:
@@ -3465,7 +3484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -3580,6 +3598,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -3838,7 +3857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1981869484
 RectTransform:
   m_ObjectHideFlags: 0

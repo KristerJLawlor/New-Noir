@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public bool canShoot=true;
     public GameObject bulletPrefab;
     public int ammoCount = 6;
+    public AmmoCan counter;
 
 
     // Start is called before the first frame update
@@ -51,12 +52,36 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< HEAD
         Vector3 newVel = (LastInput) * speed;
         LastVel = Vector3.zero;
         Vector3 velDif = newVel - LastVel;
         LastVel += ((velDif.normalized * acceleration)) * Time.deltaTime;
         LastVel = newVel;
         
+=======
+        /*Vector3 newVel = LastInput * speed;
+        Vector3 oldVel = new Vector3(myRig.velocity.x, 0, myRig.velocity.z);
+        Vector3 velDif = newVel - oldVel;
+
+        if (newVel.magnitude < .1f && oldVel.magnitude < .1f)
+        {
+            myRig.velocity = Vector3.zero + new Vector3(0, myRig.velocity.y, 0);
+        }
+        else
+        {
+            myRig.velocity += velDif.normalized * acceleration * Time.deltaTime; 
+
+            if (new Vector3(myRig.velocity.x, 0, myRig.velocity.z).magnitude > maxSpeed)
+            {
+                myRig.velocity = new Vector3(myRig.velocity.x, 0, myRig.velocity.z).normalized * maxSpeed
+                    + new Vector3(0, myRig.velocity.y, 0);
+            }
+        }
+        */
+        myRig.velocity = LastInput * speed + new Vector3(0, myRig.velocity.y, 0);
+
+>>>>>>> b77104569f61bbbb83df32784da359b3fae08005
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
@@ -80,16 +105,23 @@ public class Player : MonoBehaviour
             canShoot=false;
             StartCoroutine(Reloading());
         }
+        counter.UpdateBullet(ammoCount);
     }
 
-    public void Movement(InputAction.CallbackContext move)
+    public void Movement(InputAction.CallbackContext c)
     {
-        if (move.phase == InputActionPhase.Started || move.phase == InputActionPhase.Performed)
+        if (c.phase == InputActionPhase.Started || c.phase == InputActionPhase.Performed)
         {
-            Vector2 temp = move.ReadValue<Vector2>();
+            Vector2 temp = c.ReadValue<Vector2>();
             LastInput = new Vector3(temp.x, 0, temp.y);
+            myRig.velocity = new Vector3(temp.x, 0, temp.y) * speed + new Vector3(0, myRig.velocity.y, 0);
         }
-        if (move.phase == InputActionPhase.Canceled)
+        if (c.phase == InputActionPhase.Canceled)
+        {
+            LastInput = Vector3.zero;
+
+        }
+        else
         {
             LastInput = Vector3.zero;
         }
@@ -102,6 +134,7 @@ public class Player : MonoBehaviour
             {
                 lastFire = true;
                 ammoCount--;
+
             }
             else if (s.phase == InputActionPhase.Canceled)
             {

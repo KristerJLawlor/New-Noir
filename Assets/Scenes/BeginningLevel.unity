@@ -25884,6 +25884,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840732910}
   m_Mesh: {fileID: -8705586421385700698, guid: eb2e28af9bf479348b2e785a2428949d, type: 3}
+--- !u!114 &1852251859 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1822408954, guid: 92309f06cc9541e4b8b65c80d52b9abb, type: 3}
+  m_PrefabInstance: {fileID: 98578583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a141399a54d5534ea0ede4b4545ca62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1853084910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35491,6 +35502,7 @@ MonoBehaviour:
   canShoot: 1
   bulletPrefab: {fileID: 7013166114014306625, guid: 073883db38cfb37458ffc7275e9fe00c, type: 3}
   ammoCount: 6
+  counter: {fileID: 1852251859}
 --- !u!23 &3318767460691713801
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38983,7 +38995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7794438805489676829, guid: 933fb10942fdf6a47ba707b0b80cfa0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.79
+      value: 1.68
       objectReference: {fileID: 0}
     - target: {fileID: 7794438805489676829, guid: 933fb10942fdf6a47ba707b0b80cfa0e, type: 3}
       propertyPath: m_LocalPosition.z

@@ -10271,7 +10271,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1630266884829620946, guid: 59ac47baae886d246a5124d944d2502d, type: 3}
       propertyPath: m_Speed
-      value: 2.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -1630266884829620946, guid: 59ac47baae886d246a5124d944d2502d, type: 3}
       propertyPath: m_AngularSpeed
@@ -11223,7 +11223,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8373692910957286801, guid: 6867967a2cf578f41be285b11eb9236d, type: 3}
       propertyPath: m_Speed
-      value: 2.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8373692910957286801, guid: 6867967a2cf578f41be285b11eb9236d, type: 3}
       propertyPath: m_AngularSpeed
@@ -15007,7 +15007,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7817427366925378104, guid: e3eab8c847b41fd479a854ded4c01e08, type: 3}
       propertyPath: m_Speed
-      value: 2.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -7817427366925378104, guid: e3eab8c847b41fd479a854ded4c01e08, type: 3}
       propertyPath: m_AngularSpeed
@@ -19506,7 +19506,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6518782026220790196, guid: 59635cb13f2f43b41979ba9696fef98e, type: 3}
       propertyPath: m_Speed
-      value: 2.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6518782026220790196, guid: 59635cb13f2f43b41979ba9696fef98e, type: 3}
       propertyPath: m_AngularSpeed

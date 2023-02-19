@@ -176,6 +176,9 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter(Collision c)
     {
-
+        if(c.gameObject.tag == "Goal")
+        {
+            SceneManager.LoadScene(4);
+        }
     }
 }

@@ -11,7 +11,7 @@ public class UIScripting : MonoBehaviour
     void Start()
     {
         Lives.text = "3";
-        Ammo.text = "0";
+        //Ammo.text = "0";
     }
 
     // Update is called once per frame

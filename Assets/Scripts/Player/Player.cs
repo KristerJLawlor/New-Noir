@@ -162,4 +162,8 @@ public class Player : MonoBehaviour
             lives--;
         }
     }
+    public void SetLives(int value)
+    {
+        lives = value+1;
+    }
 }

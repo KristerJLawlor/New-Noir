@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 4767328513795143928}
   - component: {fileID: 4767328513795143924}
   - component: {fileID: 4767328513795143920}
+  - component: {fileID: 3315666142157580448}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -151,7 +152,7 @@ Transform:
   - {fileID: 7794438807301799439}
   - {fileID: 8854061149548110535}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7794438805489676828
 Animator:
@@ -326,9 +327,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4767328513795143924}
-        m_TargetAssemblyTypeName: PlayerControls, Assembly-CSharp
-        m_MethodName: Mover
+      - m_Target: {fileID: 3315666142157580448}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Movement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -338,8 +339,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4767328513795143920}
-        m_TargetAssemblyTypeName: TempPlayerController, Assembly-CSharp
+      - m_Target: {fileID: 4767328513795143924}
+        m_TargetAssemblyTypeName: PlayerAnimation, Assembly-CSharp
         m_MethodName: Mover
         m_Mode: 0
         m_Arguments:
@@ -358,9 +359,9 @@ MonoBehaviour:
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4767328513795143924}
-        m_TargetAssemblyTypeName: PlayerControls, Assembly-CSharp
-        m_MethodName: Attacker
+      - m_Target: {fileID: 3315666142157580448}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Shoot
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -370,8 +371,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4767328513795143920}
-        m_TargetAssemblyTypeName: TempPlayerController, Assembly-CSharp
+      - m_Target: {fileID: 4767328513795143924}
+        m_TargetAssemblyTypeName: PlayerAnimation, Assembly-CSharp
         m_MethodName: Attacker
         m_Mode: 0
         m_Arguments:
@@ -424,6 +425,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 83a08a54-0c99-4d3e-963b-5046e263c0cf
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3315666142157580448}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Reload
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1a235cbe-6cf5-414f-9ae6-2122e13b75ba
+    m_ActionName: Player/Reload[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -453,7 +470,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7794438805489676833}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf8e7d12645b07a4c9463eaa21d7498e, type: 3}
   m_Name: 
@@ -465,6 +482,38 @@ MonoBehaviour:
   AttackTimer: 1.5
   LastAttack: 0
   LastInput: {x: 0, y: 0, z: 0}
+--- !u!114 &3315666142157580448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7794438805489676833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a4485eee7ac1149bbf24fbda0d5882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRig: {fileID: 4767328513795143926}
+  playerHP: 100
+  playerMaxHP: 0
+  power: 50
+  lives: 5
+  speed: 2
+  maxSpeed: 2
+  acceleration: 1.01
+  collideSide: 0
+  collideUnder: 0
+  Velocity: {x: 0, y: 0, z: 0}
+  LastVel: {x: 0, y: 0, z: 0}
+  LastInput: {x: 0, y: 0, z: 0}
+  cam: {fileID: 0}
+  lastFire: 0
+  canShoot: 1
+  bulletPrefab: {fileID: 7013166114014306625, guid: 073883db38cfb37458ffc7275e9fe00c, type: 3}
+  ammoCount: 6
+  counter: {fileID: 0}
+  UISCRIPT: {fileID: 0}
 --- !u!1 &7794438805547262228
 GameObject:
   m_ObjectHideFlags: 0
@@ -4321,6 +4370,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 7794438806158491737}
     m_Modifications:
     - target: {fileID: 3776381288399939567, guid: 1f7c3b2c7f616ed49a279b827227a9e7, type: 3}
@@ -4392,6 +4442,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f7c3b2c7f616ed49a279b827227a9e7, type: 3}
 --- !u!4 &1621845196419186816 stripped
 Transform:
@@ -4403,6 +4454,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 7794438805489774575}
     m_Modifications:
     - target: {fileID: 2013929968694788711, guid: 965898fc962bb504487339614e4cfb76, type: 3}
@@ -4454,6 +4506,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 965898fc962bb504487339614e4cfb76, type: 3}
 --- !u!4 &7117804208222766125 stripped
 Transform:

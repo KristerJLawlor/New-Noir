@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
         {
             throw new System.Exception("Player has no rigidbody");
         }
+        
         audioSrc = GetComponent<AudioSource>();
         cam = GameObject.FindGameObjectWithTag("GameCam").GetComponent<Camera>();
     }
@@ -50,25 +51,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newVel = LastInput * speed;
-        Vector3 oldVel = new Vector3(myRig.velocity.x, 0, myRig.velocity.z);
-        Vector3 velDif = newVel - oldVel;
-
-        if (newVel.magnitude < .1f && oldVel.magnitude < .1f)
-        {
-            myRig.velocity = Vector3.zero + new Vector3(0, myRig.velocity.y, 0);
-        }
-        else
-        {
-            myRig.velocity += velDif.normalized * acceleration * Time.deltaTime; 
-
-            if (new Vector3(myRig.velocity.x, 0, myRig.velocity.z).magnitude > maxSpeed)
-            {
-                myRig.velocity = new Vector3(myRig.velocity.x, 0, myRig.velocity.z).normalized * maxSpeed
-                    + new Vector3(0, myRig.velocity.y, 0);
-            }
-        }
-
+        Vector3 newVel = (LastInput) * speed;
+        LastVel = Vector3.zero;
+        Vector3 velDif = newVel - LastVel;
+        LastVel += ((velDif.normalized * acceleration)) * Time.deltaTime;
+        LastVel = newVel;
+        
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))

@@ -15,9 +15,7 @@ public class PlayerAnimation : MonoBehaviour
     public float AttackTimer = 1.5f;
 
     public bool LastAttack = false;
-
     public Vector3 LastInput;
-
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +25,6 @@ public class PlayerAnimation : MonoBehaviour
 
         //Get rigidbody
         myRig = GetComponent<Rigidbody>();
-
     }
 
     // Update is called once per frame
@@ -35,7 +32,6 @@ public class PlayerAnimation : MonoBehaviour
     {
 
     }
-
 
     public void Mover(InputAction.CallbackContext c)
     {
@@ -48,8 +44,6 @@ public class PlayerAnimation : MonoBehaviour
             LastInput = Vector3.zero;
             myAnimate.SetInteger("DIR", 0);
         }
-        
-
     }
 
     public void Attacker(InputAction.CallbackContext j)
@@ -59,18 +53,15 @@ public class PlayerAnimation : MonoBehaviour
             LastAttack = true;
             myAnimate.SetInteger("DIR", 2);
             Debug.Log("Made it to Attack");
-            
         }
         else if (j.phase == InputActionPhase.Canceled) //if key is released
         {
             StartCoroutine(Timeout());
             LastAttack = false;
             Debug.Log("Attack let go");
-            
         }
 
     }
-
 
     public IEnumerator Timeout()
     {   

@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public int playerHP = 100;
     public int playerMaxHP;
     public int power = 50;
-    public int lives = 10;
+    public int lives;
     public float speed = 2f;
     public float maxSpeed = 2f;
     public float acceleration = 1.01f;
@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         //playerAnimator = GetComponent<Animator>();
         myRig = GetComponent<Rigidbody>();
         if (myRig == null)

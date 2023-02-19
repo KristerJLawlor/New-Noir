@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     public int playerMaxHP;
     public int power = 50;
     public int lives = 3;
+    public float speed = 2f;
+    public float maxSpeed = 2f;
+    public float acceleration = 1.01f;
     public bool collideSide = false;
     public bool collideUnder = false;
     public Vector3 Velocity;
@@ -45,6 +48,25 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 newVel = LastInput * speed;
+        Vector3 oldVel = new Vector3(myRig.velocity.x, 0, myRig.velocity.z);
+        Vector3 velDif = newVel - oldVel;
+
+        if (newVel.magnitude < .1f && oldVel.magnitude < .1f)
+        {
+            myRig.velocity = Vector3.zero + new Vector3(0, myRig.velocity.y, 0);
+        }
+        else
+        {
+            myRig.velocity += velDif.normalized * acceleration * Time.deltaTime; 
+
+            if (new Vector3(myRig.velocity.x, 0, myRig.velocity.z).magnitude > maxSpeed)
+            {
+                myRig.velocity = new Vector3(myRig.velocity.x, 0, myRig.velocity.z).normalized * maxSpeed
+                    + new Vector3(0, myRig.velocity.y, 0);
+            }
+        }
+
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
@@ -98,9 +120,8 @@ public class Player : MonoBehaviour
             lives--;
             if(lives <= 0)
             {
-
+                SceneManager.LoadScene(3);
             }
-            SceneManager.LoadScene(3);
         }
     }
 

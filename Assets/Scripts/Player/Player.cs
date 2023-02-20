@@ -57,6 +57,8 @@ public class Player : MonoBehaviour
         Vector3 newVel = (LastInput) * speed;
         LastVel = Vector3.zero;
         Vector3 velDif = newVel - LastVel;
+        myRig.velocity = new Vector3(LastInput.x, 0, LastInput.y) * speed + new Vector3(0, myRig.velocity.y, 0);
+
         LastVel += ((velDif.normalized * acceleration)) * Time.deltaTime;
         LastVel = newVel;
 
@@ -74,6 +76,8 @@ public class Player : MonoBehaviour
             {
                 GameObject temp = GameObject.Instantiate(bulletPrefab, myRig.position + this.transform.forward * .9f + this.transform.up, this.transform.rotation);
                 temp.GetComponent<Rigidbody>().velocity = this.transform.forward *8;
+                ammoCount--;
+                lastFire= false;
                 canShoot = false;
                 //enemycounter.KillEnemy();
                 StartCoroutine(ROF());
@@ -98,7 +102,6 @@ public class Player : MonoBehaviour
         {
             Vector2 temp = c.ReadValue<Vector2>();
             LastInput = new Vector3(temp.x, 0, temp.y);
-            myRig.velocity = new Vector3(temp.x, 0, temp.y) * speed + new Vector3(0, myRig.velocity.y, 0);
         }
         if (c.phase == InputActionPhase.Canceled)
         {
@@ -110,10 +113,10 @@ public class Player : MonoBehaviour
     {
         if (ammoCount > 0)
         {
-            if (s.phase == InputActionPhase.Started && canShoot)
+            if (s.phase == InputActionPhase.Started)
             {
                 lastFire = true;
-                ammoCount--;
+                
 
             }
             else if (s.phase == InputActionPhase.Canceled)

@@ -2,7 +2,7 @@
 // Colorblind Effect Unity Plugin 1.0
 using UnityEngine;
 #if UNITY_EDITOR
-using UnityEditor;
+//using UnityEditor;
 #endif
 
 namespace Wilberforce

@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        Vector3 newVel = (LastInput) * speed;
+        Vector3 newVel = LastInput * speed;
         LastVel = Vector3.zero;
         Vector3 velDif = newVel - LastVel;
         LastVel += ((velDif.normalized * acceleration)) * Time.deltaTime;
@@ -100,10 +100,12 @@ public class Player : MonoBehaviour
             Vector2 temp = c.ReadValue<Vector2>();
             LastInput = new Vector3(temp.x, 0, temp.y);
             myRig.velocity = new Vector3(temp.x, 0, temp.y) * speed + new Vector3(0, myRig.velocity.y, 0);
+            Debug.Log("Moving" + LastInput);
         }
         if (c.phase == InputActionPhase.Canceled)
         {
             LastInput = Vector3.zero;
+            Debug.Log("Canceled" + LastInput);
 
         }
     }
@@ -162,5 +164,9 @@ public class Player : MonoBehaviour
         {
             lives--;
         }
+    }
+    public void SetLives(int value)
+    {
+        lives = value+1;
     }
 }
